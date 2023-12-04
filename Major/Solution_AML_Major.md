@@ -1,6 +1,6 @@
 <center><h3> AML MAJOR </h3></br><h5>Bikash Dutta</h5></center>
 
-### Note: This readme can also be seen on github in case formule is not render properly [link](https://github.com/d22cs051/aml-2023/Major/Solution_AML_Major.md)
+### Note: This readme can also be seen on github in case formule is not render properly [link](https://github.com/d22cs051/aml-2023/blob/main/Major/Solution_AML_Major.md)
 
 # Ans 1.
 ## 1. Data Collection and Preparation:
