@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Solution_AML_Major.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///DATA1/bikash_dutta/CS/AML/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///DATA1/bikash_dutta/CS/AML/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
+</head>
+
+<body>
+    <center><h3> AML MAJOR </h3></br><h5>Bikash Dutta</h5></center>
+<h3 id="note-this-readme-can-also-be-seen-on-github-in-case-formule-is-not-render-properly-link">Note: This readme can also be seen on github in case formule is not render properly <a href="https://github.com/d22cs051/aml-2023/Major/Solution_AML_Major.md">link</a></h3>
+<h1 id="ans-1">Ans 1.</h1>
+<h2 id="1-data-collection-and-preparation">1. Data Collection and Preparation:</h2>
+<p>a. <strong>Gather a Massive Corpus of Creative Writing Prompts:</strong></p>
+<ul>
+<li>Online writing communities: Engage with online writing forums, groups, and communities to gather a collection of creative writing prompts shared by experienced writers.</li>
+<li>Writing prompts websites: Explore websites dedicated to providing creative writing prompts and gather a selection of prompts that showcase diverse themes and styles.</li>
+<li>Published books containing writing exercises: Consult books specifically designed for creative writing exercises and extract prompts that encourage imaginative exploration.</li>
+</ul>
+<p>b. <strong>Annotate Prompts with Themes and Keywords:</strong></p>
+<ul>
+<li>Employ human annotators: Hire or collaborate with skilled writers and editors to accurately identify and label the themes and keywords associated with each prompt.</li>
+<li>Utilize existing annotations: Leverage publicly available datasets of annotated creative writing prompts to supplement manual annotation efforts.</li>
+</ul>
+<p>c. <strong>Clean and Preprocess Text:</strong></p>
+<ul>
+<li>Remove irrelevant characters: Eliminate unnecessary symbols, punctuation, and formatting elements that could distract the LLM.</li>
+<li>Handle inconsistencies: Standardize formatting, correct typos, and address any inconsistencies in spelling or grammar to maintain data integrity.</li>
+<li>Normalize word forms: Apply stemming or lemmatization techniques to group similar words together and reduce the dimensionality of the input.</li>
+</ul>
+<p>d. <strong>Data Augmentation:</strong></p>
+<ul>
+<li>Paraphrasing: Generate variations of existing prompts by rephrasing them using different words or sentence structures.</li>
+<li>Back-translation: Translate prompts into another language and then back-translate them to the original language, introducing new linguistic patterns.</li>
+<li>Synonym replacement: Substitute words with semantically similar synonyms to enhance the LLM's understanding of word relationships.</li>
+</ul>
+<h2 id="2-model-training-and-optimization">2. Model Training and Optimization:</h2>
+<p>a. <strong>Choose an Appropriate LLM Architecture:</strong></p>
+<ul>
+<li>Transformers: Use architectures like pre-trained LLM like GPT-3, GPT-4 or BERT known for their ability to capture long-range dependencies in language.</li>
+</ul>
+<p>b. <strong>Fine-tune the LLM on the Creative Writing Prompt Dataset:</strong></p>
+<ul>
+<li>Why fine-tune?, as disscused many times in classes Ts and Td are same i.e text genration so it will more resource efficent and faster while using Pre-Trained models.</li>
+<li>Fine-tune the model's parameters to better understand the nuances of prompt generation.</li>
+<li>Utilize the annotated dataset of creative writing prompts to train the LLM on the association between themes, keywords, and prompts.</li>
+</ul>
+<p>c. <strong>Hyperparameter Optimization:</strong></p>
+<ul>
+<li>Adjust learning rate, batch size, optimizer settings, and other hyperparameters to find an optimal configuration.</li>
+<li>Employ techniques like grid search or random search to efficiently explore the hyperparameter space.</li>
+</ul>
+<p>d. <strong>Regular Evaluation:</strong></p>
+<table>
+<thead>
+<tr>
+<th>NLG task</th>
+<th>Context (Input)</th>
+<th>Reference and Hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Machine Translation (MT)</td>
+<td>Source language sentence</td>
+<td>Translation</td>
+</tr>
+<tr>
+<td>Abstractive Summarization (AS)</td>
+<td>Document</td>
+<td>Summary</td>
+</tr>
+<tr>
+<td>Question Answering (QA)</td>
+<td>Question + Background info (Passage, Image, etc)</td>
+<td>Answer</td>
+</tr>
+<tr>
+<td>Question Generation (QG)</td>
+<td>Passage, Knowledge base, Image</td>
+<td>Question</td>
+</tr>
+<tr>
+<td>Dialogue Generation (DG)</td>
+<td>Conversation history</td>
+<td>Response</td>
+</tr>
+<tr>
+<td>Image Captioning (IC)</td>
+<td>Image</td>
+<td>Caption</td>
+</tr>
+<tr>
+<td>Data to Text (D2T)</td>
+<td>Semi-structured data (Tables, Graphs, AMRs, etc)</td>
+<td>Description</td>
+</tr>
+</tbody>
+</table>
+<center> Table 1. Context and Reference/Hypothesis Forms for Each NLG Task
+<p><img src="https://i.imgur.com/fOFvGvf.png" alt="table2"><br>
+<a href="https://dl.acm.org/doi/pdf/10.1145/3485766">source</a></p>
+</center>
+<ul>
+<li>Track metrics like BLEU score and others mentioned in the above table to assess the model's ability to generate coherent and relevant prompts.</li>
+<li>Identify areas for improvement and refine the training process based on evaluation results.</li>
+</ul>
+<h2 id="3-addressing-challenges-in-prompt-relevance-and-diversity">3. Addressing Challenges in Prompt Relevance and Diversity:</h2>
+<p>a. <strong>Theme and Keyword Representation:</strong></p>
+<ul>
+<li>Employ BERT or ELMo to represent themes and keywords as contextual embeddings, capturing semantic meaning and context.</li>
+</ul>
+<p>b. <strong>Attention Mechanism:</strong></p>
+<ul>
+<li>Implement an attention mechanism within the LLM to focus on relevant parts of the input theme or keyword when generating prompts.</li>
+</ul>
+<p>c. <strong>Prompt Diversity Strategies:</strong></p>
+<ul>
+<li>Implement techniques to promote prompt diversity, such as temperature sampling, beam search, and novelty measures.</li>
+</ul>
+<p>d. <strong>Human Evaluation:</strong></p>
+<ul>
+<li>Conduct regular evaluations with human experts to assess the relevance, creativity, and diversity of generated prompts.</li>
+</ul>
+<p><strong>4. Evaluating System Effectiveness:</strong></p>
+<p>a. <strong>Creativity Assessment:</strong></p>
+<ul>
+<li>Evaluate the creativity of generated prompts by measuring their originality, unexpectedness, and ability to spark new ideas.</li>
+<li>Employ metrics like surprise, semantic distance, and novelty to quantify the creativity of generated prompts.</li>
+<li>Conduct human evaluations to assess the subjective creativity of generated prompts, considering aspects like originality, engagement, and emotional impact.</li>
+</ul>
+<p>b. <strong>Relevance Assessment:</strong></p>
+<ul>
+<li>Evaluate the relevance of generated prompts to the given theme or keyword by measuring their semantic similarity and thematic coherence.</li>
+<li>Utilize metrics like semantic similarity, cosine similarity, and topic coherence to quantify the relevance of generated prompts.</li>
+<li>Conduct human evaluations to assess the subjective relevance of generated prompts, considering how closely they align with the provided theme or keyword.</li>
+</ul>
+<p>c. <strong>Engagement Assessment:</strong></p>
+<ul>
+<li>Evaluate the engagement of generated prompts by measuring their ability to capture the user's attention, evoke emotions, and inspire further writing.</li>
+<li>Employ metrics like emotional valence, arousal, and readability to quantify the engagement of generated prompts.</li>
+<li>Conduct human evaluations to assess the subjective engagement of generated prompts, considering how effectively they capture attention, evoke emotions, and inspire writing.</li>
+</ul>
+<p>d. <strong>Human Feedback:</strong></p>
+<ul>
+<li>Gather feedback from writers and creative individuals to assess the overall usefulness and effectiveness of the system in generating prompts that foster creative writing.</li>
+<li>Conduct user studies and surveys to gather quantitative and qualitative feedback on the system's ability to generate relevant, diverse, and engaging prompts.</li>
+<li>Analyze user feedback to identify areas for improvement and refine the system accordingly.</li>
+</ul>
+<p><strong>Potential Challenges:</strong></p>
+<ol>
+<li><strong>Ensuring Prompt Relevance:</strong> Ensuring that generated prompts are closely related to the provided theme or keyword requires effective contextual understanding and attention mechanisms.</li>
+<li><strong>Maintaining Prompt Diversity:</strong> Generating prompts that are diverse and cover a wide range of topics necessitates careful consideration of prompt generation strategies and diversity metrics.</li>
+<li><strong>Addressing Bias and Fairness:</strong> Ensuring that generated prompts are unbiased and fair requires careful data selection, training procedures, and evaluation metrics.</li>
+<li><strong>Explainability and Interpretability:</strong> Understanding the rationale behind generated prompts is crucial for user trust and improving the system's ability to generate prompts that align with user expectations.</li>
+<li><strong>Safety Challenges:</strong> Many of these improvements also present new safety challenges.
+<ul>
+<li>Hallucinations</li>
+<li>Harmful content</li>
+<li>Harms of representation, allocation, and quality of service</li>
+<li>Disinformation and influence operations</li>
+<li>Proliferation of conventional and unconventional weapons</li>
+<li>Privacy</li>
+<li>Cybersecurity</li>
+<li>Potential for risky emergent behaviors</li>
+<li>Interactions with other systems</li>
+<li>Economic impacts</li>
+<li>Acceleration</li>
+<li>Overreliance<br>
+Note: these all are the reported challenges reported in GPT4 model for more info ref. to the paper by OpenAI <a href="https://arxiv.org/pdf/2303.08774.pdf">link</a></li>
+</ul>
+</li>
+</ol>
+<center>
+<p><img src="https://i.imgur.com/Wn9neQH.png" alt="example of GPT4"><br>
+<a href="https://arxiv.org/pdf/2303.08774.pdf">source</a></p>
+</center>
+<p><strong>Visual Abstracts:</strong></p>
+<center>
+<p><img src="https://i.imgur.com/SfLqXXV.png" alt="visual abstraction ans 1"></p>
+</center>
+<h1 id="ans-2">Ans 2.</h1>
+<ul>
+<li>N-gram Analysis: Analyze the frequency of n-grams, which are groups of adjacent words, in the generated prompts. High-frequency n-grams sometimes imply clichés or repeated patterns.</li>
+<li>Phrase Similarity Detection: The process involves comparing created prompts with a database of recognized phrases to identify potential instances of clichés or overused expressions.</li>
+<li>Quantitative measures for assessing the range and variety of vocabulary usage: To assess the variety of terms utilized in the generated prompts, calculate lexical diversity metrics, such as Simpson's diversity index or type-token ratio. A dearth of novelty or ingenuity may be suggested by a diminished range of vocabulary.</li>
+<li>Conduct a style analysis by examining the stylistic features of the generated prompts, including word choice, sentence structure, and tone, in order to identify any deviations from the expected style of the target genre.</li>
+</ul>
+<h2 id="a-architectural-choice">A. Architectural Choice:</h2>
+<p>The selection of an architecture for a deep learning model aimed at generating creative writing prompts across many genres necessitates a meticulous evaluation of the task's specifications and the merits of several architectures. Transformer-based models like GPT3, GPT4, and BERT have become leaders in natural language processing (NLP) jobs because they can effectively capture long-distance relationships in language and handle various text formats. These attributes make them very suitable for the task of generating creative writing prompts, which frequently entail intricate connections between words and phrases throughout extensive sections.</p>
+<p>The utilization of GPT3 and GPT4 provides distinct benefits for this particular undertaking. The recurrent structure of the model allows it to efficiently analyze sequential data, making it very suitable for dealing with the contextual aspects of writing prompts. Moreover, its adaptive positional encoding approach enables it to record distant connections between elements without compromising computational speed, which is essential for producing prompts that are logical and captivating.</p>
+<p>However, BERT stands out in its ability to perform well in tasks involving generating text and creating concise summaries, which makes it a formidable candidate for generating imaginative writing prompts. The encoder-decoder architecture of the system enables it to efficiently extract information from the input text and subsequently produce a relevant, imaginative, and grammatically accurate prompt. In addition, BERT's pretraining on an extensive corpus of text data equips it with a comprehensive understanding of language, which can be utilized for generating prompts.</p>
+<p>GPT3, GPT4, and BERT all provide significant benefits when it comes to creating diverse writing prompts across various genres. Due to their proficiency in managing extensive connections, analyzing sequential information, and producing logical and captivating language, they are highly suitable for this demanding NLP undertaking.</p>
+<center>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Full_GPT_architecture.png" alt="GPT Arch."><br>
+<a href="https://en.m.wikipedia.org/wiki/File:Full_GPT_architecture.png">soucre wiki</a></p>
+</center>
+<h2 id="b-incorporating-a-large-language-model-llm">B. Incorporating a Large Language Model (LLM):</h2>
+<p>Large Language Models (LLMs) have significantly transformed the discipline of Natural Language Processing (NLP) by showcasing exceptional abilities in comprehending and producing content that is comparable to human quality. Due to their capacity to acquire knowledge from extensive quantities of textual data and comprehend intricate linguistic patterns, they are highly important instruments for a range of natural language processing (NLP) applications, such as producing prompts for creative writing.</p>
+<p>There are other methods to integrate LLMs into the deep learning model for generating prompts.</p>
+<ol>
+<li>
+<p><strong>Feature Extraction(use enc. only):</strong> LLMs can be utilized to derive contextual embeddings from the input text. The embeddings effectively capture the semantic connections between words and sentences, offering useful insights for the prompt generating module.</p>
+</li>
+<li>
+<p><strong>Prompt Generation(use dec. only):</strong> The obtained embeddings can thereafter serve as input for the prompt generating module. This module would employ either a recurrent neural network (RNN) or a transformer-based architecture to make use of the LLM's generative skills. Its purpose would be to generate coherent and imaginative writing prompts, taking into account the supplied text.</p>
+</li>
+<li>
+<p><strong>Fine-tune(use complete model) :</strong> The LLM can be optimized using a dataset of creative writing challenges that have been labeled with their respective genres. The process of fine-tuning would enable the LLM to adjust its settings and acquire a deep understanding of various genres, resulting in the production of prompts that are more distinctive to each genre and more captivating.</p>
+</li>
+</ol>
+<h2 id="c-training-process-and-genre-nuances">C. Training Process and Genre Nuances:</h2>
+<p>The training process for the deep learning model involves several crucial steps to ensure it effectively learns the nuances of different genres and generates high-quality writing prompts:</p>
+<ol>
+<li>
+<p><strong>Data Collection:</strong> The first step is to gather a massive corpus of creative writing prompts annotated with their corresponding genres. This dataset should be carefully curated to ensure adequate representation of a diverse range of genres and writing styles.</p>
+</li>
+<li>
+<p><strong>Data Preprocessing:</strong> The collected data needs to be preprocessed to remove irrelevant characters, handle inconsistencies in formatting and punctuation, and normalize word forms. This preprocessing ensures the model receives high-quality input data for training.</p>
+</li>
+<li>
+<p><strong>Model Fine-tuning:</strong> The pre-trained LLM is then fine-tuned on the annotated prompt dataset. This fine-tuning process allows the LLM to adapt its parameters to the specific task of generating creative writing prompts and learn the subtle distinctions between different genres.</p>
+</li>
+<li>
+<p><strong>Hyperparameter Optimization:</strong> Hyperparameters, such as learning rate, batch size, and optimizer settings, play a significant role in the model's performance. Techniques like grid search or random search can be employed to efficiently explore the hyperparameter space and optimize the model's performance for each genre.</p>
+</li>
+<li>
+<p><strong>Regular Evaluation:</strong> Throughout the training process, regular evaluation is essential to assess the model's progress and identify areas for improvement. This evaluation should include metrics such as relevance, originality, and engagement of the generated prompts, with specific attention paid to genre-specific nuances.</p>
+</li>
+</ol>
+<h2 id="d-evaluating-effectiveness-and-creativity">D. Evaluating Effectiveness and Creativity:</h2>
+<p>A multi-pronged approach is essential to evaluate the effectiveness and creativity of the generated prompts, considering both quantitative and qualitative measures:</p>
+<h3 id="quantitative-measures">Quantitative Measures:</h3>
+<table>
+<thead>
+<tr>
+<th>NLG task</th>
+<th>Context (Input)</th>
+<th>Reference and Hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Machine Translation (MT)</td>
+<td>Source language sentence</td>
+<td>Translation</td>
+</tr>
+<tr>
+<td>Abstractive Summarization (AS)</td>
+<td>Document</td>
+<td>Summary</td>
+</tr>
+<tr>
+<td>Question Answering (QA)</td>
+<td>Question + Background info (Passage, Image, etc)</td>
+<td>Answer</td>
+</tr>
+<tr>
+<td>Question Generation (QG)</td>
+<td>Passage, Knowledge base, Image</td>
+<td>Question</td>
+</tr>
+<tr>
+<td>Dialogue Generation (DG)</td>
+<td>Conversation history</td>
+<td>Response</td>
+</tr>
+<tr>
+<td>Image Captioning (IC)</td>
+<td>Image</td>
+<td>Caption</td>
+</tr>
+<tr>
+<td>Data to Text (D2T)</td>
+<td>Semi-structured data (Tables, Graphs, AMRs, etc)</td>
+<td>Description</td>
+</tr>
+</tbody>
+</table>
+<center> Table 1. Context and Reference/Hypothesis Forms for Each NLG Task
+<p><img src="https://i.imgur.com/fOFvGvf.png" alt="table2"><br>
+<a href="https://dl.acm.org/doi/pdf/10.1145/3485766">source</a></p>
+</center>
+<h3 id="qualitative-measures">Qualitative Measures:</h3>
+<ol>
+<li>
+<p><strong>Relevance:</strong> Assessing the relevance of generated prompts to the input text and their adherence to genre conventions is crucial. This can be evaluated using metrics like semantic similarity between the prompts and the input text, as well as genre-specific evaluation criteria developed by genre experts.</p>
+</li>
+<li>
+<p><strong>Originality:</strong> Evaluating the originality and avoidance of repetition or clichés in the generated prompts is essential for ensuring they spark new ideas. This can be measured using metrics like surprise, semantic distance, and novelty, which quantify the unexpectedness and deviation from common patterns in the generated prompts.</p>
+</li>
+<li>
+<p><strong>Engagement:</strong> Measuring the ability of prompts to capture attention, evoke emotions, and inspire further writing is critical for assessing their effectiveness. This can be evaluated through user studies and surveys that gauge the emotional impact and engagement level of the generated prompts.</p>
+</li>
+<li>
+<p><strong>Human Evaluation:</strong> Conducting regular evaluations with genre-specific writers and editors is essential for assessing the overall effectiveness, creativity, and alignment with genre expectations of the generated prompts. Human evaluation provides valuable insights into the nuances and subjective aspects of creativity that may not be captured by quantitative metrics alone.</p>
+</li>
+</ol>
+<h2 id="e-potential-challenges-and-mitigation-strategies">E. Potential Challenges and Mitigation Strategies:</h2>
+<ol>
+<li>
+<p><strong>Distinct Characteristics of Different Genres:</strong> To effectively handle the delicate intricacies and established norms of many genres, one must possess a profound comprehension of each genre and exercise meticulous deliberation during the process of model training and evaluation. To tackle this issue, it can be resolved by integrating training data that is specific to each genre, involving specialists in the respective genres during the evaluation process, and establishing evaluation criteria that are tailored to each genre.</p>
+</li>
+<li>
+<p><strong>Data Quality and Bias:</strong> To avoid the model from perpetuating stereotypes or generating offensive or insensitive prompts, it is vital to ensure data quality and minimize bias in the training data. This issue can be resolved by meticulously selecting and organizing the training data, implementing methods such as identifying and reducing bias, and include a wide range of viewpoints in the review process.</p>
+</li>
+<li>
+<p><strong>Explainability and Interpretability:</strong> Comprehending the underlying reasoning behind the prompts that are created is crucial for establishing user confidence and enhancing the system's capacity to conform to user expectations. Attention mechanisms and interpretable models can be utilized to gain insights into the decision-making process of the model.</p>
+</li>
+<li>
+<p><strong>Evaluation of Creativity:</strong> Measuring creativity is inherently subjective, and human assessment is crucial for evaluating the ingenuity of created prompts. Computational metrics can offer additional perspectives on various elements of creativity, including surprise, novelty, and semantic distance.</p>
+</li>
+<li>
+<p><strong>Scalability and Generalizability:</strong> The model must possess scalability to effectively process substantial amounts of textual input and retain the capacity to provide prompts across various genres and writing styles. This issue can be resolved by implementing effective training methods, leveraging cloud computing resources, and integrating various data sources during the training process.</p>
+</li>
+</ol>
+<p><strong>Visual Abstracts:</strong></p>
+<center>
+<p><img src="https://i.imgur.com/rbfmexB.png" alt="visual abstraction ans 2"></p>
+</center>
+<h1 id="ans-3">Ans 3.</h1>
+<h2 id="a-architectural-choice">A. Architectural Choice:</h2>
+<p>Efficiently combining language and vision models to comprehend and describe intricate scenes in images necessitates a meticulously designed framework that effortlessly connects visual and linguistic representations. For this assignment, we require a dual-phase framework:</p>
+<p>All of the SOTA Arch. on VQA is Listed Here which uses the similar arch. paradiame given below <a href="https://paperswithcode.com/sota/visual-question-answering-on-vqa-v2-test-std">link</a></p>
+<center>
+<p><img src="https://i.imgur.com/ryXJCDR.png" alt="SOTA MODELS"><br>
+<a href="https://paperswithcode.com/sota/visual-question-answering-on-vqa-v2-test-std">source</a></p>
+</center>
+<p><strong>Part 1: Extraction of Visual Features</strong></p>
+<ol>
+<li><strong>Convolutional Neural Network (CNN):</strong></li>
+</ol>
+<ul>
+<li>
+<p>A type of deep learning algorithm that is specifically designed for analyzing visual data, such as images or videos. It uses a series of convolutional layers to extract features from the input data and then applies pooling layers to reduce the dimensionality. CNNs are widely</p>
+</li>
+<li>
+<p>Utilize a Convolutional Neural Network (CNN), such as ResNet [1] or VGGNet [2], to extract advanced visual characteristics from the given image. Convolutional Neural Networks (CNNs) are highly proficient in extracting spatial patterns and accurately detecting objects present in photos.</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>ViT Feature Extraction:</strong></li>
+</ol>
+<ul>
+<li>
+<p>The ViT model utilizes a hierarchical encoder-decoder design, which imitates the hierarchical processing of visual information in the human visual system. The encoder converts the input image into a sequence of patches, which are subsequently sent via a succession of transformer blocks for processing. The transformer block pulls more complex information by analyzing the connections between patches at various resolutions.</p>
+</li>
+<li>
+<p>The ViT model utilizes a global attention mechanism in each transformer block, in contrast to typical CNNs that depend on local receptive fields. This feature enables the model to focus on pertinent sections throughout the entire image, facilitating the inclusion of distant connections and contextual details.</p>
+</li>
+<li>
+<p>Highly efficient and easily scalable: The architecture of ViT provides numerous benefits in terms of efficiency and scalability. ViT is highly compatible with training on extensive datasets and utilizing hardware accelerators because to its utilization of parallelizable transformer blocks. Moreover, the model's capacity to handle patches autonomously allows for optimized utilization of memory and processing resources.</p>
+</li>
+</ul>
+<p><strong>Part 2: Language Generation with Contextual Comprehension</strong></p>
+<ol>
+<li>Architecture utilizing an Encoder-Decoder framework with an Attention Mechanism:</li>
+</ol>
+<ul>
+<li>Employ an encoder-decoder architecture with attention mechanism to handle the extracted visual features and produce a comprehensive description.</li>
+</ul>
+<ol start="2">
+<li><strong>Encoder:</strong></li>
+</ol>
+<ul>
+<li>The encoder utilizes a transformer model such as Transformer-XL [3] or BART [4] to handle the visual aspects and produce a contextualized representation that encompasses the connections between various elements in the image.</li>
+</ul>
+<ol start="3">
+<li><strong>Attention Mechanism:</strong></li>
+</ol>
+<ul>
+<li>Incorporate an attention mechanism to direct the decoder's attention towards specific elements of the image, hence enabling more precise and elaborate descriptions.</li>
+</ul>
+<ol start="4">
+<li><strong>Decoder:</strong></li>
+</ol>
+<ul>
+<li>The decoder, which is also a transformer model, produces a logical and detailed text by utilizing the contextualized representation to capture the story of the scene.</li>
+</ul>
+<center>
+<p><img src="https://i.imgur.com/gOUwGLV.png" alt="BEiT-3"></p>
+<p><img src="https://i.imgur.com/MdIkeSa.png" alt="BEiT-3"><br>
+<a href="https://arxiv.org/pdf/2208.10442v2.pdf">source</a></p>
+<p>------------ OR ------------</p>
+<p><img src="https://i.imgur.com/tHlcSz6.png" alt="ONE-PEACE"></p>
+<p><img src="https://i.imgur.com/wCx6M53.png" alt="ONE-PEACE"><br>
+<a href="https://arxiv.org/pdf/2305.11172v1.pdf">source</a></p>
+</center>
+<h2 id="b-ensuring-contextual-interpretation-and-relationships">B. Ensuring Contextual Interpretation and Relationships:</h2>
+<p>In order to ensure the model effectively comprehends the context and connections between pieces in an image, we might utilize various strategies:</p>
+<ol>
+<li><strong>Spatial Attention:</strong></li>
+</ol>
+<ul>
+<li>This refers to the ability to focus on specific locations or regions in space.</li>
+<li>Utilize spatial attention techniques, such as Co-attention or Graph Convolutional Networks (GCNs), to effectively capture the relative placements of objects and their interactions within the scene.</li>
+</ul>
+<center>
+<p><img src="https://i.imgur.com/x7QizyE.png" alt="CNN vs GCN"><br>
+<a href="https://www.ee.iitb.ac.in/~eestudentrg/presentations/Deconvoluting_Graph_Convolutional_Networks.pdf">source</a></p>
+</center>
+<ol start="2">
+<li><strong>Modeling of Object Interactions:</strong></li>
+</ol>
+<ul>
+<li>Create a module that explicitly acquires knowledge about the connections between items, including their co-occurrence, proximity, and interactions. This could be founded on methodologies such as Visual Relationship Prediction (VRP) or Scene Graph Generation (SGG).</li>
+</ul>
+<center>
+<p><img src="https://i.imgur.com/F8p2WU8.png" alt="VRP"><br>
+<a href="https://arxiv.org/pdf/2107.01181.pdf">source</a></p>
+<p><img src="https://production-media.paperswithcode.com/tasks/1226db37-ca12-4a83-950a-4b343bcb3976.jpg" alt="VRP"><br>
+<a href="https://paperswithcode.com/task/unbiased-scene-graph-generation">source</a></p>
+</center>
+<ol start="3">
+<li><strong>Generation of Scene Graph:</strong></li>
+</ol>
+<ul>
+<li>Create a scene graph that depicts the hierarchical connections among objects, activities, and events in the image, offering a structured representation for comprehending the context. Methods such as Visual Genome and Open-Images can provide valuable ideas and guidance.</li>
+</ul>
+<center>
+<p><img src="https://spectra.pub/ml/images/scene_graph/image_retrieval_paper.png" alt="Scene Graph"><br>
+<a href="https://spectra.mathpix.com/article/2021.09.00021/visual-relationship-scene-graph">source</a></p>
+</center>
+<h2 id="c-training-process-and-data-bias-mitigation">C. Training Process and Data Bias Mitigation:</h2>
+<ol>
+<li><strong>Data Preprocessing:</strong></li>
+</ol>
+<ul>
+<li>Employ a varied dataset comprising of superior photographs coupled with comprehensive and precise descriptions, guaranteeing sufficient inclusion of different settings, items, and contexts. Datasets such as Flickr30k Entities, MSCOCO, and Visual Genome offer a solid foundation for beginning.</li>
+</ul>
+<ol start="2">
+<li><strong>Data Augmentation:</strong></li>
+</ol>
+<ul>
+<li>This refers to the technique of artificially increasing the size of a dataset by applying various transformations or modifications to the existing data, such as rotation, scaling, or flipping. The purpose of data augmentation is to</li>
+<li>Utilize data augmentation methods, such as cropping, flipping, and color jittering, to expand the dataset and improve the model's ability to handle variations in illumination, position, and viewpoint.</li>
+</ul>
+<ol start="3">
+<li><strong>Bias Detection and Mitigation:</strong></li>
+</ol>
+<ul>
+<li>Utilize bias detection methods, such as fairness metrics and adversarial training, to detect and address biases in the training data, hence preventing the model from perpetuating stereotypes or producing biased descriptions.</li>
+</ul>
+<ol start="4">
+<li><strong>Multimodal Loss:</strong></li>
+</ol>
+<ul>
+<li>
+<p>This refers to the loss function used in multimodal learning, which aims to optimize the performance of models that process many types of data simultaneously.</p>
+</li>
+<li>
+<p>Employ a multimodal loss function that concurrently optimizes the model's performance in extracting visual features and generating words, guaranteeing alignment between the two modalities. One possible basis for this may be the utilization of methodologies such as Multimodal Transformer or Cross-Modal Contrastive Learning.</p>
+</li>
+</ul>
+<h2 id="d-evaluating-model-performance">D. Evaluating Model Performance:</h2>
+<p>In order to evaluate the success of this model, it is important to incorporate all the above mentioned criteria for text production. This requires a comprehensive methodology that considers factors such as accuracy, contextual understanding, and the quality of narrative descriptions.</p>
+<ol>
+<li><strong>Precision:</strong></li>
+</ol>
+<ul>
+<li>Assess the precision, recall, and F1-score to determine the accuracy of object and action recognition.</li>
+</ul>
+<ol start="2">
+<li><strong>Comprehension of the Context:</strong></li>
+</ol>
+<ul>
+<li>Evaluate the model's capacity to comprehend connections between items by employing metrics such as co-occurrence identification, interaction recognition, and scene graph accuracy.</li>
+</ul>
+<ol start="3">
+<li><strong>Quality of Narrative Description:</strong></li>
+</ol>
+<ul>
+<li>Assess the caliber of generated descriptions by employing human evaluation and metrics like as BLEU score, ROUGE score, and Meteor score.</li>
+</ul>
+<ol start="4">
+<li><strong>Assessment by Humans:</strong></li>
+</ol>
+<ul>
+<li>Regularly check the model's capacity to comprehend the intricacies and subtleties of diverse genres and contexts by conducting evaluations with specialists in fields such as art, history, and social sciences.</li>
+</ul>
+<center>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0262885621002328-ga1_lrg.jpg" alt="Evaluation Metric"><br>
+<a href="https://www.sciencedirect.com/science/article/pii/S0262885621002328">source</a></p>
+</center>
+<h2 id="e-ethical-considerations-and-challenges">E. Ethical Considerations and Challenges:</h2>
+<p><strong>1. Protection of Data Privacy and Obtaining Consent:</strong></p>
+<ul>
+<li>
+<p><strong>Data Collection Transparency:</strong> Provide consumers with explicit information regarding the objective of data acquisition, the intended utilization of their data, and the measures taken to safeguard their privacy. Prior to collecting and utilizing their data, ensure that explicit and informed consent is obtained.</p>
+</li>
+<li>
+<p><strong>Compliance with Data Privacy requirements:</strong> Ensure adherence to relevant data privacy requirements, such as the General Data Protection Regulation (GDPR) in the European Union and the California Consumer Privacy Act (CCPA) in California. These regulations grant individuals specific entitlements to their personal data, encompassing the entitlement to access, rectify, and erase their data.</p>
+</li>
+</ul>
+<p><strong>2. Data Bias and Fairness:</strong></p>
+<ul>
+<li>
+<p><strong>Identification and Mitigation of Bias:</strong> Apply bias detection methodologies to discover and address biases present in the training data. This may entail applying fairness criteria to evaluate the model's performance among various subgroups, implementing adversarial training to reduce the model's vulnerability to biased inputs, and eliminating or adjusting the weight of biased samples in the training data.</p>
+</li>
+<li>
+<p><strong>Data Curation with Accountability:</strong> Thoroughly choose the training data to guarantee its diversity, representativeness, and absence of detrimental preconceptions. This entails choosing images and descriptions from many sources, encompassing various cultures, ethnicities, and socioeconomic backgrounds.</p>
+</li>
+<li>
+<p><strong>Equity in Depictions:</strong> Ensure that the resulting descriptions are equitable, impartial, and do not propagate stereotypes or discrimination. Supervise the model's results to identify any potential biases and apply appropriate measures to address them if needed.</p>
+</li>
+</ul>
+<p><strong>3. Elucidation and Comprehensibility:</strong></p>
+<ul>
+<li>
+<p><strong>Explainable AI:</strong> Create methodologies to elucidate the decision-making process of the model, enabling users to comprehend the rationale behind its generation of specific descriptions and its interpretation of visual data. One such approach is to utilize techniques such as attention mechanisms, saliency maps, and counterfactual explanations.</p>
+</li>
+<li>
+<p><strong>User Transparency:</strong> Ensure that users are presented with unambiguous elucidations on the model's constraints, potential predispositions, and regions of indeterminacy. One way to achieve this is by utilizing user interfaces, documentation, and training materials.</p>
+</li>
+</ul>
+<p><strong>4. Prevention of Misuse:</strong></p>
+<ul>
+<li>
+<p><strong>Preventing Malicious Utilization:</strong> Establish protective measures to deter the exploitation of the system for malevolent intentions, such as disseminating false information, producing detrimental content, or violating privacy rights. This may entail employing methodologies such as adversarial training, anomaly detection, and content filtering.</p>
+</li>
+<li>
+<p><strong>Guidelines for Responsible Use:</strong> Establish explicit criteria for appropriate utilization of the system, delineating permissible and impermissible applications. Provide users with information about these rules and consistently ensure their compliance.</p>
+</li>
+</ul>
+<p><strong>5. Public Engagement and Dialogue:</strong></p>
+<ul>
+<li>
+<p><strong>Transparent Communication:</strong> Foster transparent communication with the public regarding the development and utilization of the system, effectively addressing concerns and inquiries pertaining to potential ethical ramifications.</p>
+</li>
+<li>
+<p><strong>Multi-Stakeholder Dialogue:</strong> A process that involves the participation and collaboration of several stakeholders from different sectors or interest groups to engage in a discussion or conversation aimed at addressing complex issues or finding solutions. Participate in discussions with specialists from several disciplines, such as ethics, law, technology, and social sciences, to examine the ethical consequences of the system and establish conscientious principles for its utilization.</p>
+</li>
+</ul>
+<p><strong>Visual Abstracts:</strong></p>
+<center>
+<p><img src="https://i.imgur.com/ZSGvWOp.png" alt="visual abstraction ans 3"></p>
+</center>
+<h1 id="ans-4">Ans 4.</h1>
+<h2 id="i-language-vision-model-architecture">I. Language-Vision Model Architecture:</h2>
+<p>Similar to previous arch. but with some modifications for incorporating Active and  Curriculum Learning</p>
+<p><strong>Part 1: Extraction of Visual Features</strong></p>
+<ol>
+<li><strong>Convolutional Neural Network (CNN):</strong></li>
+</ol>
+<ul>
+<li>
+<p>A type of deep learning algorithm that is specifically designed for analyzing visual data, such as images or videos. It uses a series of convolutional layers to extract features from the input data and then applies pooling layers to reduce the dimensionality. CNNs are widely</p>
+</li>
+<li>
+<p>Utilize a Convolutional Neural Network (CNN), such as ResNet [1] or VGGNet [2], to extract advanced visual characteristics from the given image. Convolutional Neural Networks (CNNs) are highly proficient in extracting spatial patterns and accurately detecting objects present in photos.</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>ViT Feature Extraction:</strong></li>
+</ol>
+<ul>
+<li>
+<p>The ViT model utilizes a hierarchical encoder-decoder design, which imitates the hierarchical processing of visual information in the human visual system. The encoder converts the input image into a sequence of patches, which are subsequently sent via a succession of transformer blocks for processing. The transformer block pulls more complex information by analyzing the connections between patches at various resolutions.</p>
+</li>
+<li>
+<p>The ViT model utilizes a global attention mechanism in each transformer block, in contrast to typical CNNs that depend on local receptive fields. This feature enables the model to focus on pertinent sections throughout the entire image, facilitating the inclusion of distant connections and contextual details.</p>
+</li>
+<li>
+<p>Highly efficient and easily scalable: The architecture of ViT provides numerous benefits in terms of efficiency and scalability. ViT is highly compatible with training on extensive datasets and utilizing hardware accelerators because to its utilization of parallelizable transformer blocks. Moreover, the model's capacity to handle patches autonomously allows for optimized utilization of memory and processing resources.</p>
+</li>
+</ul>
+<p><strong>Part 2: Language Generation with Contextual Comprehension</strong></p>
+<ol>
+<li>Architecture utilizing an Encoder-Decoder framework with an Attention Mechanism:</li>
+</ol>
+<ul>
+<li>Employ an encoder-decoder architecture with attention mechanism to handle the extracted visual features and produce a comprehensive description.</li>
+</ul>
+<ol start="2">
+<li><strong>Encoder:</strong></li>
+</ol>
+<ul>
+<li>The encoder utilizes a transformer model such as Transformer-XL [3] or BART [4] to handle the visual aspects and produce a contextualized representation that encompasses the connections between various elements in the image.</li>
+</ul>
+<ol start="3">
+<li><strong>Attention Mechanism:</strong></li>
+</ol>
+<ul>
+<li>Incorporate an attention mechanism to direct the decoder's attention towards specific elements of the image, hence enabling more precise and elaborate descriptions.</li>
+</ul>
+<ol start="4">
+<li><strong>Decoder:</strong></li>
+</ol>
+<ul>
+<li>The decoder, which is also a transformer model, produces a logical and detailed text by utilizing the contextualized representation to capture the story of the scene.</li>
+</ul>
+<center>
+<p><img src="https://i.imgur.com/gOUwGLV.png" alt="BEiT-3"></p>
+<p><img src="https://i.imgur.com/MdIkeSa.png" alt="BEiT-3"><br>
+<a href="https://arxiv.org/pdf/2208.10442v2.pdf">source</a></p>
+<p>------------ OR ------------</p>
+<p><img src="https://i.imgur.com/tHlcSz6.png" alt="ONE-PEACE"></p>
+<p><img src="https://i.imgur.com/wCx6M53.png" alt="ONE-PEACE"><br>
+<a href="https://arxiv.org/pdf/2305.11172v1.pdf">source</a></p>
+</center>
+<p><strong>Part 3: Integration and Cross-Modal Interaction:</strong></p>
+<ol>
+<li>
+<p><strong>Cross-Modal Attention:</strong> The visual and language feature representations are compared using a cross-modal attention mechanism. This mechanism allows the model to identify and attend to relevant parts of the image and text that are semantically related.</p>
+</li>
+<li>
+<p><strong>Multimodal Fusion:</strong> The attended visual and language features are fused to create a joint multimodal representation. This multimodal representation captures the combined information from both modalities, allowing the model to make more informed decisions.</p>
+</li>
+</ol>
+<h2 id="ii-active-learning-integration">II. Active Learning Integration:</h2>
+<p>The system can incorporate Active Learning concepts to adapt dynamically to the child's answers and learning progress.</p>
+<ol>
+<li>
+<p><strong>Uncertainty Sampling:</strong> The model calculates its level of uncertainty for every query. Questions with a high level of ambiguity are given priority for presentation to the kid, as these questions are more likely to yield significant information for enhancing the model's performance.</p>
+</li>
+<li>
+<p><strong>Selection of Informative Query:</strong> The model chooses questions that are highly informative for enhancing its comprehension of the child's knowledge and learning preferences. This entails taking into account the child's previous reactions and the current ambiguity of the model.</p>
+</li>
+<li>
+<p><strong>Adaptive Feedback:</strong> The model offers feedback to the youngster in accordance with their responses. Feedback may encompass elucidations, supplementary instances, or cues to facilitate the child's acquisition of knowledge.</p>
+</li>
+</ol>
+<h2 id="iii-curriculum-learning-implementation">III. Curriculum Learning Implementation:</h2>
+<p>Curriculum Learning strategies can be utilized to ascertain the optimal sequence of difficulty and intricacy in the topic.</p>
+<ol>
+<li>
+<p><strong>Assessment of Knowledge Level:</strong> The model assesses the child's present level of understanding by analyzing their responses. One can accomplish this by employing methodologies such as Bayesian Knowledge Tracing or Item Response Theory.</p>
+</li>
+<li>
+<p><strong>Modification of the curriculum:</strong> The model chooses content that corresponds to the child's estimated level of understanding. The content is systematically delivered in a progressive manner, starting with simpler concepts and progressively advancing to more complex ones, in order to provide the child with a suitable level of challenge without overwhelming them.</p>
+</li>
+<li>
+<p><strong>Dynamic Difficulty Adjustment:</strong> The model adapts the difficulty of the questions and tasks in real-time according to the child's performance. This facilitates the preservation of the child's engagement and motivation.</p>
+</li>
+</ol>
+<h2 id="iv-dataset-requirements-and-challenges">IV. Dataset Requirements and Challenges:</h2>
+<p>The approach necessitates an extensive and varied dataset consisting of images and associated queries that have several potential solutions. The dataset should encompass a diverse array of concepts and varying levels of complexity in order to accommodate children of varied ages and learning capacities.</p>
+<ol>
+<li>
+<p><strong>Gathering of Information:</strong> Acquiring a substantial dataset of superior photographs and inquiries can pose a formidable challenge. Possible sources encompass educational materials, internet-based repositories, and partnerships with specialists in child development.</p>
+</li>
+<li>
+<p><strong>Data Annotation:</strong> The process of adding accurate answers and explanations to the dataset is a time-consuming task. It is necessary to create annotation tools and rules in order to guarantee uniformity and precision.</p>
+</li>
+<li>
+<p><strong>Data Bias:</strong> The dataset must undergo meticulous curation to prevent any biases related to gender, race, socioeconomic background, and learning styles. For instance, let's consider the issue of gender bias. It is crucial that all the instances in the dataset are not exclusively connected to boys. If this were to<br>
+occur during the creation process, all the examples would be generated accordingly, perpetuating the bias</p>
+</li>
+</ol>
+<h2 id="v-evaluation-metrics-and-engagement">V. Evaluation Metrics and Engagement:</h2>
+<p>The efficacy of the model can be assessed using diverse metrics for the intraction and learing paradigms.</p>
+<ul>
+<li>
+<p><strong>Learning Gains:</strong> Assess the enhancement in the child's knowledge and comprehension of the taught ideas. One can accomplish this by employing pre- and post-tests, standardized assessments, or concept-specific quizzes.</p>
+</li>
+<li>
+<p><strong>Involvement:</strong> Evaluate the child's degree of involvement with the instrument. Quantification of this can be achieved by assessing the duration of tool usage, task completion rates, and self-reported levels of satisfaction.</p>
+</li>
+<li>
+<p><strong>Motivation:</strong> Assess the child's drive to persist in utilizing the instrument. Evaluating this can be accomplished by utilizing surveys, interviews, and observations of the child's behavior.</p>
+</li>
+<li>
+<p><strong>Personalization:</strong> Assess the tool's capacity to adjust to the unique learning speed and preferences of each individual child. This can be evaluated by examining the tool's suggestions for content and levels of<br>
+difficulty.</p>
+</li>
+<li>
+<p><strong>Quantitative Metrics:</strong></p>
+</li>
+</ul>
+<center>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0262885621002328-ga1_lrg.jpg" alt="Evaluation Metric"><br>
+<a href="https://www.sciencedirect.com/science/article/pii/S0262885621002328">source</a></p>
+</center>
+<p>To guarantee the tool maintains its ability to captivate and educate individuals with varying learning capacities and styles, take into account the following:</p>
+<ul>
+<li>
+<p><strong>Diverse Content:</strong> Incorporate a range of content types, such as photos, videos, audio, and interactive features, to cater to varied learning preferences.</p>
+</li>
+<li>
+<p><strong>Individualized Evaluation:</strong> Offer customized feedback that is specifically designed to address the child's individual mistakes and educational requirements.</p>
+</li>
+<li>
+<p><strong>Gamification:</strong> The implementation of game elements and mechanics in non-game contexts. Enhance motivation and engagement by integrating gamification features, such as scoring systems, achievement badges, and competitive leaderboards.</p>
+</li>
+<li>
+<p><strong>Adaptability:</strong> Enable the youngster to personalize the tool's visual aspects, adjust the difficulty levels, and control the speed according to their specific tastes.</p>
+</li>
+</ul>
+<h2 id="vi-safety-and-privacy-guard-rails">VI. Safety and Privacy Guard-rails:</h2>
+<p>In order to guarantee the security and confidentiality of children utilizing this tool, incorporate the following protective measures:</p>
+<ul>
+<li>
+<p><strong>Content Generation:</strong> All content that is deemed inappropriate for children should be prohibited from passing through.</p>
+</li>
+<li>
+<p><strong>Guard-rails Updates:</strong> Regular updates on the Guard-rails pollices must be perfromed in order to protect from the missuse.</p>
+</li>
+<li>
+<p><strong>Parental Consent:</strong> Prior to collecting or utilizing any data pertaining to a kid, it is imperative to acquire specific consent from the child's parent or guardian.</p>
+</li>
+<li>
+<p><strong>Data Security:</strong> Enforce stringent data security protocols to safeguard the personal information of children.</p>
+</li>
+<li>
+<p><strong>Data Minimization:</strong> Gather solely the essential quantity of data required for the tool's performance.</p>
+</li>
+<li>
+<p><strong>Data Transparency:</strong> Ensure that parents are given unambiguous and easily accessible details regarding the collection, utilization, and dissemination of their child's data.</p>
+</li>
+<li>
+<p><strong>Ethical Review:</strong> Ensure that the tool's development and use undergoes a thorough evaluation by specialists in the fields of child development, data protection, and education to assess its ethical implications.</p>
+</li>
+<li>
+<p><strong>Periodic Audits:</strong> Perform routine audits of the tool's security and privacy policies to verify adherence to data protection rules and ethical norms.</p>
+</li>
+<li>
+<p><strong>User Education:</strong> Provide parents and children with information and guidance on best practices for maintaining online safety and privacy.</p>
+</li>
+</ul>
+<p>Through meticulous consideration of these safety and privacy protocols, we may develop a teaching tool that is both efficacious and reliable, while also upholding the rights of children.</p>
+<p><strong>Visual Abstracts:</strong></p>
+<center>
+<p><img src="https://i.imgur.com/VThrSRg.png" alt="visual abstraction ans 4"></p>
+</center>
+<h3 id="research-papers">Research Papers:</h3>
+<ul>
+<li>Controlled Text Generation with Natural Language Instructions (ICML-2023)  <a href="https://icml.cc/virtual/2023/poster/25192">link</a></li>
+<li>Creative Text Generation with Latent Dirichlet Allocation and Variational Autoencoders (Springer) <a href="https://link.springer.com/article/10.1007/s10579-023-09646-3">link</a></li>
+<li>Data Augmentation Techniques for Improving Creative Text Generation (by tencent) <a href="https://arxiv.org/abs/2105.13650">link</a></li>
+<li>Hierarchical Attention Mechanisms for Multi-modal Creative Text Generation (sciencedirect) <a href="https://www.sciencedirect.com/science/article/pii/S0925231218308646">link</a></li>
+<li>GPT-4 Technical Report (OpenAI) <a href="https://arxiv.org/pdf/2303.08774.pdf">link</a></li>
+<li>Image as a Foreign Language: BEIT Pretraining for All Vision and Vision-Language Tasks (microsoft) <a href="https://arxiv.org/pdf/2208.10442v2.pdf">link</a></li>
+<li>ONE-PEACE: EXPLORING ONE GENERAL REPRESENTATION MODEL TOWARD UNLIMITED MODALITIES <a href="https://arxiv.org/pdf/2305.11172v1.pdf">link</a></li>
+</ul>
+
+</body>
+
+</html>
